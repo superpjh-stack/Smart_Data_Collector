@@ -1,0 +1,1023 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-08-05T11:25:35.051Z",
+  "activeFeatures": [
+    "cloud_api",
+    "collector",
+    "tests",
+    "scripts",
+    "archiving",
+    "dashboard",
+    "scratchpad",
+    "rawdata"
+  ],
+  "primaryFeature": "cloud_api",
+  "features": {
+    "cloud_api": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": 92.1,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {
+        "design": "docs/02-design/features/cloud_api.design.md",
+        "analysis": "docs/03-analysis/cloud_api.analysis.md",
+        "report": "docs/04-report/cloud_api.report.md"
+      },
+      "timestamps": {
+        "started": "2026-07-13T11:46:01.377Z",
+        "lastUpdated": "2026-08-05T11:01:19.429Z"
+      },
+      "lastFile": "C:\\Users\\amore\\Desktop\\26년 AP Claude Play Ground\\09 Smart data collector\\cloud-api\\src\\cloud_api\\routers\\raw_data.py"
+    },
+    "collector": {
+      "phase": "completed",
+      "phaseNumber": 5,
+      "matchRate": 90.4,
+      "iterationCount": 2,
+      "requirements": [],
+      "documents": {
+        "design": "docs/02-design/features/collector.design.md",
+        "analysis": "docs/03-analysis/collector.analysis.md",
+        "report": "docs/04-report/collector.report.md"
+      },
+      "timestamps": {
+        "started": "2026-07-13T11:47:43.870Z",
+        "lastUpdated": "2026-08-04T01:01:11.657Z"
+      },
+      "lastFile": "C:\\Users\\amore\\Desktop\\26년 AP Claude Play Ground\\09 Smart data collector\\collector\\src\\collector\\buffer.py"
+    },
+    "tests": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-07-13T11:54:06.466Z",
+        "lastUpdated": "2026-08-05T11:25:35.051Z"
+      },
+      "lastFile": "C:\\Users\\amore\\Desktop\\26년 AP Claude Play Ground\\09 Smart data collector\\cloud-api\\tests\\test_raw_data_storage.py"
+    },
+    "scripts": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-07-15T00:28:45.494Z",
+        "lastUpdated": "2026-08-03T09:19:39.052Z"
+      },
+      "lastFile": "C:\\Users\\amore\\Desktop\\26년 AP Claude Play Ground\\09 Smart data collector\\cloud-api\\scripts\\seed_dev_tag_config.py"
+    },
+    "archiving": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-08-03T09:11:41.265Z",
+        "lastUpdated": "2026-08-03T09:11:41.265Z"
+      },
+      "lastFile": "C:\\Users\\amore\\Desktop\\26년 AP Claude Play Ground\\09 Smart data collector\\cloud-api\\archiving\\parquet_archiver.py"
+    },
+    "dashboard": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-08-04T08:18:10.896Z",
+        "lastUpdated": "2026-08-05T07:15:53.697Z"
+      },
+      "lastFile": "C:\\Users\\amore\\Desktop\\26년 AP Claude Play Ground\\09 Smart data collector\\dashboard\\src\\App.tsx"
+    },
+    "scratchpad": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-08-05T03:29:04.454Z",
+        "lastUpdated": "2026-08-05T03:29:04.454Z"
+      },
+      "lastFile": "C:\\Users\\amore\\AppData\\Local\\Temp\\claude\\C--Users-amore-Desktop-26--AP-Claude-Play-Ground-09-Smart-data-collector\\1cecfd87-4d9f-49d2-ad8e-b8f803107536\\scratchpad\\seed_dashboard_demo.py"
+    },
+    "rawdata": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-08-05T07:12:36.546Z",
+        "lastUpdated": "2026-08-05T07:29:27.385Z"
+      },
+      "lastFile": "C:\\Users\\amore\\Desktop\\26년 AP Claude Play Ground\\09 Smart data collector\\dashboard\\src\\components\\rawdata\\RawDataTab.tsx"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-07-13T01:29:47.720Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-08-05T11:25:35.051Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-07-13T11:46:01.377Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:46:13.508Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:46:25.174Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:46:41.352Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:46:53.345Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:47:02.351Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:47:43.870Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:48:17.913Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:48:45.939Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:49:22.832Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:49:48.213Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:50:06.851Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:50:20.915Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:50:40.776Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:50:55.796Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:51:35.929Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:51:46.059Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:51:57.296Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:52:12.192Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:52:26.861Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:52:36.740Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:52:57.420Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:53:15.054Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:53:26.168Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:54:06.466Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:54:20.882Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T11:54:42.106Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T23:57:20.509Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-13T23:57:39.096Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T06:01:57.084Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T06:02:15.069Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T06:08:54.401Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T07:03:24.126Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T07:46:43.968Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T07:46:54.612Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T10:12:37.528Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T10:12:46.722Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T10:13:08.231Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T10:25:08.749Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T13:29:59.366Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T14:05:00.169Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T14:24:36.725Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T14:24:43.698Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-14T14:25:52.894Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-07-15T00:28:45.494Z",
+      "feature": "scripts",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T09:11:41.265Z",
+      "feature": "archiving",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T09:13:07.447Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T09:13:10.638Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T09:19:39.052Z",
+      "feature": "scripts",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T10:05:00.000Z",
+      "feature": "cloud_api",
+      "phase": "design",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T10:05:00.000Z",
+      "feature": "collector",
+      "phase": "design",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:00:06.368Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:00:28.208Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:00:42.909Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:00:55.387Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:01:13.889Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:01:23.081Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:01:47.025Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:02:00.535Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:02:13.924Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:02:28.833Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:02:42.586Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:02:56.541Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:03:39.529Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:04:03.363Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:04:46.921Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:05:27.667Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:05:43.409Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-03T11:05:52.999Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T01:01:11.657Z",
+      "feature": "collector",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T01:51:59.738Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T01:52:08.491Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T05:34:18.513Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T05:34:35.388Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T05:34:47.667Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T05:35:04.897Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T05:35:18.497Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T05:35:56.962Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T05:36:07.571Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T07:48:47.109Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T07:49:00.294Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T07:49:14.384Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T07:49:29.529Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T07:49:45.160Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:18:10.896Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:18:27.895Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:18:49.073Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:19:09.044Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:19:24.257Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:19:38.861Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:19:54.452Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:20:14.500Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:20:22.695Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:20:33.547Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:20:47.596Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:20:59.113Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:22:08.258Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:22:26.990Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:22:34.195Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T08:23:42.816Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T10:21:10.047Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-04T10:21:27.644Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T03:29:04.454Z",
+      "feature": "scratchpad",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T06:34:45.808Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T06:35:25.951Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T06:35:39.330Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T06:37:21.121Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T06:37:30.457Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T06:37:35.845Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:11:50.074Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:11:58.684Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:12:11.238Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:12:26.268Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:12:36.546Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:12:44.019Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:13:01.213Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:13:06.624Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:13:11.785Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:13:45.880Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:14:06.593Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:14:23.029Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:14:46.917Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:14:59.730Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:15:08.462Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:15:20.303Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:15:37.347Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:15:53.697Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:28:13.891Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:28:28.683Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:28:49.660Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:28:55.217Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:29:00.503Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:29:18.236Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T07:29:27.385Z",
+      "feature": "rawdata",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:00:52.755Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:01:19.429Z",
+      "feature": "cloud_api",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:12:16.959Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:15:12.499Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:19:59.699Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:20:09.687Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:20:18.471Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:20:48.540Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:22:01.690Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:22:11.059Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:24:31.749Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:25:20.817Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-08-05T11:25:35.051Z",
+      "feature": "tests",
+      "phase": "do",
+      "action": "updated"
+    }
+  ]
+}

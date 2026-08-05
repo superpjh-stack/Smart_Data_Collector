@@ -1,0 +1,37 @@
+graph TD
+    PLC["PLC x10<br/>(태그 각 10개, 총 100포인트)"]
+    GW["OPC UA 게이트웨이<br/>(OT망, 기존 구축됨)"]
+    EC["Edge Collector<br/>asyncua 클라이언트 + SQLite 로컬 버퍼<br/>+ 알람 hysteresis 엔진"]
+    API["Cloud Ingestion API<br/>(FastAPI)"]
+    HOT["Hot Store: TimescaleDB<br/>raw readings, 1년 보관<br/>1분/1시간 continuous aggregate"]
+    ALM["Alarm Event Store<br/>임계치 이벤트 테이블"]
+    COLD["Cold Store: Object Storage<br/>Parquet (일/월 파티션)"]
+    BI["분석/BI"]
+    MES["MES/ERP 연동 API<br/>(TODO, 미구현)"]
+    DASH["대시보드"]
+
+    PLC -->|OPC UA| GW
+    GW -->|"OT망, 로컬"| EC
+    EC -->|"아웃바운드 전용, TLS<br/>방화벽/DMZ 통과"| API
+    API --> HOT
+    API --> ALM
+    HOT -->|"1년 경과 후 배치<br/>copy-then-verify-then-delete"| COLD
+    HOT --> BI
+    COLD --> BI
+    ALM --> BI
+    BI --> MES
+    MES --> DASH
+
+    subgraph OT["OT망 (아웃바운드만 허용, 인바운드 차단)"]
+        PLC
+        GW
+        EC
+    end
+
+    subgraph SEC["보안 경계: Sign & Encrypt(OPC UA) + TLS 상호인증(클라우드 구간)"]
+        API
+    end
+
+    style OT fill:#fff3cd,stroke:#856404
+    style SEC fill:#d1ecf1,stroke:#0c5460
+    style MES fill:#f8d7da,stroke:#721c24,stroke-dasharray: 5 5

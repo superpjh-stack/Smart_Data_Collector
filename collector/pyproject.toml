@@ -1,0 +1,35 @@
+[project]
+name = "smart-data-collector"
+version = "0.1.0"
+description = "Edge collector: OPC UA subscription, local SQLite buffer, alarm engine, cloud transmission"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncua>=1.1.0",
+    "aiosqlite>=0.20.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+# Pin fixtures to the same per-test event loop as the test function itself.
+# Without this, an async fixture (e.g. opc_server) and its test can end up on
+# different loops under pytest-asyncio >=0.23, and awaiting the fixture's
+# asyncio primitives (Queue/Event) from the test's loop hangs silently.
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+markers = [
+    "integration: exercises a real in-process OPC UA server (slower, no network needed)",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

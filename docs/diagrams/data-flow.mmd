@@ -1,0 +1,26 @@
+graph LR
+    A["OPC UA Gateway<br/>subscription 값 변경 통지"]
+    B["_DeadbandGate<br/>deadband 이내 값 필터링"]
+    C["AlarmEngine<br/>hysteresis 임계치 평가<br/>(트리거/해제)"]
+    D["SqliteBuffer<br/>append (WAL)<br/>reading + alarm 이벤트"]
+    E["Transmitter<br/>우선순위 큐: alarm 먼저<br/>배치 5~10초, JSON Lines+gzip"]
+    F["Cloud Ingestion API<br/>ON CONFLICT DO NOTHING dedup"]
+    G["200 OK<br/>{inserted, duplicates}"]
+    H["버퍼 커밋<br/>(delete)"]
+
+    A --> B --> C --> D --> E -->|"HTTPS POST<br/>재시도/백오프"| F --> G --> H
+
+    HB["Heartbeat Loop<br/>client.get_server_date()"]
+    GD["gateway_down 상태 이벤트<br/>최우선 채널 전송"]
+    HB -.->|"생존 확인 실패"| GD
+
+    TC["Cloud tag_config"]
+    POLL["60초 주기 폴링<br/>GET /config/v1/tags?since_version=N"]
+    TCS["Edge Collector<br/>tag_config 반영"]
+    TC --> POLL --> TCS
+
+    style GD fill:#f8d7da,stroke:#721c24
+    style HB fill:#fff3cd,stroke:#856404
+    style TC fill:#d1ecf1,stroke:#0c5460
+    style POLL fill:#d1ecf1,stroke:#0c5460
+    style TCS fill:#d1ecf1,stroke:#0c5460

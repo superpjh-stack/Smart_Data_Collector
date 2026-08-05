@@ -1,0 +1,67 @@
+# Smart Data Collector — EDGE SITE compose file.
+#
+# This is the only compose file that runs on the field device (OT network, next
+# to the OPC UA gateway). The root ./docker-compose.yml is the CLOUD-side stack
+# (cloud-api + TimescaleDB) and must NOT be deployed here.
+#
+# The collector references a pre-built image from the registry rather than
+# building from ../collector: the field device pulls a tested artifact, it does
+# not compile source on-site. Watchtower then polls that registry and restarts
+# the collector when a new image for the tracked tag appears.
+#
+# Both the collector's cloud upload and Watchtower's registry poll are OUTBOUND
+# connections initiated from inside the OT network. No inbound port is exposed
+# by any service here — see deploy/README.md.
+#
+#   cp .env.example .env   # then edit
+#   docker compose -f deploy/docker-compose.edge.yml up -d
+
+# Explicit project name so the buffer volume keeps its identity regardless of
+# which directory the compose command is run from.
+name: sdc-edge
+
+services:
+  collector:
+    image: ${COLLECTOR_IMAGE:-ghcr.io/OWNER/sdc-collector}:${COLLECTOR_TAG:-latest}
+    environment:
+      # `:?` makes compose refuse to start when a required value is missing,
+      # instead of launching a collector that crashes on the first from_env().
+      OPC_ENDPOINT_URL: ${OPC_ENDPOINT_URL:?set OPC_ENDPOINT_URL in deploy/.env}
+      CLOUD_API_BASE_URL: ${CLOUD_API_BASE_URL:?set CLOUD_API_BASE_URL in deploy/.env}
+      COLLECTOR_PLC_IDS: ${COLLECTOR_PLC_IDS:?set COLLECTOR_PLC_IDS in deploy/.env}
+      # Must stay on the /data volume — the SQLite buffer is what survives a
+      # version update, so it cannot live in the container's writable layer.
+      COLLECTOR_SQLITE_PATH: /data/collector_buffer.db
+      GATEWAY_HEARTBEAT_TIMEOUT_S: ${GATEWAY_HEARTBEAT_TIMEOUT_S:-15.0}
+      TAG_CONFIG_POLL_INTERVAL_S: ${TAG_CONFIG_POLL_INTERVAL_S:-60.0}
+      TRANSMIT_INTERVAL_S: ${TRANSMIT_INTERVAL_S:-2.0}
+      TRANSMIT_BATCH_MAX: ${TRANSMIT_BATCH_MAX:-500}
+    volumes:
+      - collector_buffer:/data
+    labels:
+      # Opt-in marker: Watchtower runs with WATCHTOWER_LABEL_ENABLE=true, so it
+      # touches only containers carrying this label.
+      com.centurylinklabs.watchtower.enable: "true"
+    restart: unless-stopped
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    command: --label-enable --cleanup --include-restarting
+    environment:
+      # Poll every 5 minutes. Polling (pull) is what keeps the site
+      # outbound-only; a push-based deploy agent would need an open inbound port.
+      WATCHTOWER_POLL_INTERVAL: ${WATCHTOWER_POLL_INTERVAL:-300}
+      WATCHTOWER_LABEL_ENABLE: "true"
+      WATCHTOWER_CLEANUP: "true"
+      # Private registry credentials, if the registry requires auth. Leave unset
+      # for a public/anonymous-pull registry.
+      REPO_USER: ${REGISTRY_USER:-}
+      REPO_PASS: ${REGISTRY_PASSWORD:-}
+    volumes:
+      # Watchtower needs read-write socket access: it pulls images and recreates
+      # containers. This is a local-only privilege and never network-exposed.
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+volumes:
+  collector_buffer:

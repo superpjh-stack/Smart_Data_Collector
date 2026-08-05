@@ -1,0 +1,70 @@
+# Smart Data Collector — local/dev cloud stack.
+#
+# This gives parity with the manual dev-stack steps documented in progress.md
+# ("How to spin up the dev stack again"), but on an internal Docker network, so
+# the DB uses the default 5432 internally and the host port-conflict workaround
+# (5442) from the manual setup is unnecessary. Same credentials/DB name as the
+# manual `sdc-timescaledb` container so DATABASE_URL strings stay familiar.
+#
+# The edge `collector` is deliberately NOT part of this file: it runs at the
+# edge site next to the PLC gateway, on its own lifecycle and its own host,
+# deployed via the separate edge-deploy mechanism. Bringing it up here would
+# imply it is a cloud-side service, which it is not.
+#
+#   docker compose up -d --build
+#   curl http://localhost:8000/healthz
+
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    environment:
+      POSTGRES_USER: sdc
+      POSTGRES_PASSWORD: sdc_dev_pw
+      POSTGRES_DB: smart_data_collector
+    volumes:
+      - timescale_data:/var/lib/postgresql/data
+      # Applied by the postgres entrypoint on first startup only (i.e. while the
+      # named volume is still empty). To re-apply after a schema change:
+      #   docker compose down -v && docker compose up -d
+      - ./cloud-api/migrations/001_init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+      - ./cloud-api/migrations/002_dashboard_read.sql:/docker-entrypoint-initdb.d/002_dashboard_read.sql:ro
+      - ./cloud-api/migrations/003_raw_data.sql:/docker-entrypoint-initdb.d/003_raw_data.sql:ro
+    ports:
+      - "5442:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sdc -d smart_data_collector"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  cloud-api:
+    build: ./cloud-api
+    environment:
+      DATABASE_URL: postgresql://sdc:sdc_dev_pw@timescaledb:5432/smart_data_collector
+      # "원본 데이터 수집" uploads — a named volume, not the container's
+      # writable layer, so files survive `docker compose up` recreating the
+      # container (they only die on `down -v`, same lifecycle as the DB).
+      RAW_DATA_STORAGE_ROOT: /data/raw-uploads
+    volumes:
+      - raw_data_uploads:/data/raw-uploads
+    depends_on:
+      timescaledb:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/healthz',
+          timeout=3).status == 200 else 1)"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+volumes:
+  timescale_data:
+  raw_data_uploads:
